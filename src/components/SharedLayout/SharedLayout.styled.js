@@ -6,6 +6,8 @@ export const MainBox = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-left: auto;
+  margin-right: auto;
   gap: 20px;
   p {
     margin: 0;
