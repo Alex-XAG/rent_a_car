@@ -20,9 +20,12 @@ export const App = () => {
       try {
         const allCars = await axios
           .get('https://65203df0906e276284c43e76.mockapi.io/api/adverts')
-          .then(res => res.data);
+          .then(res => {
+            console.log(res.data);
+            return res.data;
+          });
 
-        setAllCars(prevState => [...prevState, ...allCars]);
+        setAllCars(allCars);
       } catch (error) {
         console.log(error);
       }
