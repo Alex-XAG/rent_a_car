@@ -18,14 +18,13 @@ export const App = () => {
   useEffect(
     () => async () => {
       try {
-        const allCars = await axios
+        await axios
           .get('https://65203df0906e276284c43e76.mockapi.io/api/adverts')
           .then(res => {
             console.log(res.data);
+            setAllCars(res.data);
             return res.data;
           });
-
-        setAllCars(allCars);
       } catch (error) {
         console.log(error);
       }
