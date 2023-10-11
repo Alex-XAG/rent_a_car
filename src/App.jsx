@@ -22,7 +22,7 @@ export const App = () => {
           .get('https://65203df0906e276284c43e76.mockapi.io/api/adverts')
           .then(res => res.data);
 
-        setAllCars(allCars);
+        setAllCars(prevState => [...prevState, ...allCars]);
       } catch (error) {
         console.log(error);
       }
