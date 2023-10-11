@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
-import SharedLayout from './SharedLayout/SharedLayout';
+import SharedLayout from './components/SharedLayout/SharedLayout';
 import HomePage from 'pages/HomePage/HomePage';
 import CatalogPage from 'pages/CatalogPage/CatalogPage';
 import FavoritesPage from 'pages/FavoritesPage/FavoritesPage';
@@ -12,7 +12,6 @@ export const App = () => {
 
   useEffect(() => {
     const favoritesLS = JSON.parse(localStorage.getItem('favorites')) || [];
-
     setFavorites(favoritesLS);
   }, []);
 
