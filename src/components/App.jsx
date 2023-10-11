@@ -8,6 +8,14 @@ import axios from 'axios';
 
 export const App = () => {
   const [allCars, setAllCars] = useState([]);
+  const [favorites, setFavorites] = useState([]);
+
+  useEffect(() => {
+    const favoritesLS = JSON.parse(localStorage.getItem('favorites')) || [];
+
+    setFavorites(favoritesLS);
+  }, []);
+
   useEffect(
     () => async () => {
       try {
@@ -24,10 +32,24 @@ export const App = () => {
   );
   return (
     <Routes>
-      <Route path="/" element={<SharedLayout allCars={allCars} />}>
-        <Route index element={<HomePage allCars={allCars} />} />
-        <Route path="/catalog" element={<CatalogPage />} />
-        <Route path="/favorites" element={<FavoritesPage />} />
+      <Route path="/" element={<SharedLayout />}>
+        <Route index element={<HomePage />} />
+        <Route
+          path="/catalog"
+          element={
+            <CatalogPage
+              setFavorites={setFavorites}
+              favorites={favorites}
+              allCars={allCars}
+            />
+          }
+        />
+        <Route
+          path="/favorites"
+          element={
+            <FavoritesPage setFavorites={setFavorites} favorites={favorites} />
+          }
+        />
         <Route path="*" element={<HomePage />} />
       </Route>
     </Routes>
