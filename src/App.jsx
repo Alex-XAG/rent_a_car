@@ -30,6 +30,7 @@ export const App = () => {
     };
     getCars();
   }, []);
+  
   return (
     <Routes>
       <Route path="/" element={<SharedLayout />}>

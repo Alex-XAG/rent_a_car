@@ -45,6 +45,7 @@ export const CatalogItem = ({ car, favorites, setFavorites, allCars }) => {
   const openModalToggle = el => {
     setModalData(el);
   };
+
   const isCarInFavorites = favorites.find(car => car.id === id);
 
   const toggleFavorite = carId => {

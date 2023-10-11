@@ -2,13 +2,14 @@ import styled from '@emotion/styled';
 
 export const ModalArticleBox = styled.li`
   width: 540px;
-  height: 752px;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
   background-color: #fff;
   border: none;
+  padding-bottom: 40px;
 `;
 
 export const Article = styled.article`

@@ -3,7 +3,6 @@ import { CatalogList } from 'pages/CatalogPage/CatalogPage.styled';
 import { NavLink, useLocation } from 'react-router-dom';
 
 const FavoritesPage = ({ favorites, setFavorites }) => {
-  // const { favorites } = useStateContext();
   const location = useLocation();
 
   return (

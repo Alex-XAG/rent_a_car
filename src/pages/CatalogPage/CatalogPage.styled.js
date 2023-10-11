@@ -17,7 +17,6 @@ export const CatalogList = styled.ul`
 
 export const CatalogListItem = styled.li`
   width: 320px;
-  /* height: 426px; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -79,7 +78,7 @@ export const CharacteristicsItem = styled.li`
   font-family: Manrope;
   font-size: 12px;
   font-weight: 400;
-  line-height: 1.5; /* 150% */
+  line-height: 1.5;
   padding-right: 5px;
   border-right: 1px solid rgba(18, 20, 23, 0.1);
 `;
