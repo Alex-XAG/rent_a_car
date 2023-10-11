@@ -96,7 +96,7 @@ export const LoadMore = styled.button`
   border: 1px solid #000;
   border-radius: 15px;
   margin-bottom: 30px;
-
+  cursor: pointer;
   &:hover {
     background-color: rgba(0, 0, 0, 0.5);
     color: #fff;

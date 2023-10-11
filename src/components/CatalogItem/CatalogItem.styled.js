@@ -69,6 +69,7 @@ export const LearnBtn = styled.button`
   letter-spacing: 1.2;
   background-color: rgba(0, 0, 0, 0.5);
   color: #fff;
+  cursor: pointer;
 
   padding: 10px 20px;
 

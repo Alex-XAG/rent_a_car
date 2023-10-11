@@ -42,6 +42,7 @@ export const Search = styled.button`
   border: 1px solid #000;
   border-radius: 15px;
   margin-top: 20px;
+  cursor: pointer;
 
   &:hover {
     background-color: rgba(0, 0, 0, 0.5);
