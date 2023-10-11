@@ -1,5 +1,11 @@
 import { useState } from 'react';
-import { Form, SearchFormBox } from './SearchForm.styled';
+import {
+  Form,
+  Input,
+  Search,
+  SearchFormBox,
+  Select,
+} from './SearchForm.styled';
 
 export const SearchForm = ({ allCars, filter }) => {
   const [from, setFrom] = useState(1);
@@ -46,7 +52,7 @@ export const SearchForm = ({ allCars, filter }) => {
         <label>
           <p>Car brand</p>
 
-          <select value={selectedBrand} onChange={handleChangeBrand}>
+          <Select value={selectedBrand} onChange={handleChangeBrand}>
             <option>Enter the text</option>
             {brands.map(brand => {
               return (
@@ -55,12 +61,12 @@ export const SearchForm = ({ allCars, filter }) => {
                 </option>
               );
             })}
-          </select>
+          </Select>
         </label>
         <label>
           <p>Price/ 1 hour</p>
 
-          <select value={selectedPrice} onChange={handleChangePrice}>
+          <Select value={selectedPrice} onChange={handleChangePrice}>
             <option>To $</option>
             {numPrices
               .sort((a, b) => a - b)
@@ -71,25 +77,25 @@ export const SearchForm = ({ allCars, filter }) => {
                   </option>
                 );
               })}
-          </select>
+          </Select>
         </label>
 
         <label>
           <p>Сar mileage / km</p>
-          <input
+          <Input
             type="text"
             name="from"
             placeholder="From"
             onChange={handleInputFrom}
           />
-          <input
+          <Input
             type="text"
             name="to"
             placeholder="To"
             onChange={handleInputTo}
           />
         </label>
-        <button type="submit">Search</button>
+        <Search type="submit">Search</Search>
       </Form>
     </SearchFormBox>
   );

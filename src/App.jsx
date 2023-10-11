@@ -21,7 +21,6 @@ export const App = () => {
         await axios
           .get('https://65203df0906e276284c43e76.mockapi.io/api/adverts')
           .then(res => {
-            console.log(res.data);
             setAllCars(res.data);
             return res.data;
           });
@@ -31,7 +30,6 @@ export const App = () => {
     };
     getCars();
   }, []);
-  console.log(allCars);
   return (
     <Routes>
       <Route path="/" element={<SharedLayout />}>

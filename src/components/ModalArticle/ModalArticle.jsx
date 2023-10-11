@@ -91,7 +91,9 @@ export const ModalArticle = ({ car }) => {
           </Conditionstext>
         </ConditionsBox>
 
-        <LearnBtn type="button">Rental car</LearnBtn>
+        <a href="tel:+380730000000">
+          <LearnBtn type="button">Rental car</LearnBtn>
+        </a>
       </Article>
     </ModalArticleBox>
   );

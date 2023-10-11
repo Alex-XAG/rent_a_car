@@ -4,7 +4,6 @@ import { CatalogList, CatalogPageBox, LoadMore } from './CatalogPage.styled';
 import { useEffect, useState } from 'react';
 import { CatalogItem } from 'components/CatalogItem/CatalogItem';
 
-
 const CatalogPage = ({ allCars, setFavorites, favorites }) => {
   const [visibleCars, setVisibleCars] = useState(8);
   const [filteredCars, setFilteredCars] = useState([]);
@@ -31,9 +30,19 @@ const CatalogPage = ({ allCars, setFavorites, favorites }) => {
         }
         return Number(car.rentalPrice.slice(1)) <= price;
       })
-      .filter(car => car.mileage >= from && car.mileage <= to);
+      .filter(car => {
+        const mileage = car.mileage >= from && car.mileage <= to;
+        if (!mileage) {
+          return car;
+        }
+        return car.mileage >= from && car.mileage <= to;
+      });
     setFilteredCars([...filtered]);
   };
+  const showBtn =
+    filteredCars.slice(0, visibleCars).length === filteredCars.length
+      ? true
+      : false;
 
   return (
     <CatalogPageBox>
@@ -46,13 +55,14 @@ const CatalogPage = ({ allCars, setFavorites, favorites }) => {
             favorites={favorites}
             setFavorites={setFavorites}
             allCars={allCars}
-            
           />
         ))}
       </CatalogList>
-      <LoadMore type="button" onClick={showMoreCars}>
-        Load more
-      </LoadMore>
+      {!showBtn && (
+        <LoadMore type="button" onClick={showMoreCars}>
+          Load more
+        </LoadMore>
+      )}
     </CatalogPageBox>
   );
 };
