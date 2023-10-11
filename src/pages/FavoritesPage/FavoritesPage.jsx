@@ -8,7 +8,7 @@ const FavoritesPage = ({ favorites, setFavorites }) => {
 
   return (
     <>
-      <NavLink to={location.state?.from || '/'}>Go back</NavLink>
+      <NavLink to={location.state?.from || '/catalog'}>Back to catalog</NavLink>
 
       <CatalogList>
         {favorites.length ? (
