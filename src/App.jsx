@@ -29,6 +29,7 @@ export const App = () => {
     },
     []
   );
+  console.log(allCars);
   return (
     <Routes>
       <Route path="/" element={<SharedLayout />}>
