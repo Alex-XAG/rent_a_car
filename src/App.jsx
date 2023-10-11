@@ -15,8 +15,8 @@ export const App = () => {
     setFavorites(favoritesLS);
   }, []);
 
-  useEffect(
-    () => async () => {
+  useEffect(() => {
+    const getCars = async () => {
       try {
         await axios
           .get('https://65203df0906e276284c43e76.mockapi.io/api/adverts')
@@ -28,9 +28,9 @@ export const App = () => {
       } catch (error) {
         console.log(error);
       }
-    },
-    []
-  );
+    };
+    getCars();
+  }, []);
   console.log(allCars);
   return (
     <Routes>
