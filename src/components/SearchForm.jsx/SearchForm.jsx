@@ -1,21 +1,7 @@
 import { useState } from 'react';
-import {
-  Form,
-  Input,
-  Search,
-  SearchFormBox,
-  Select,
-} from './SearchForm.styled';
+import { Form, Search, SearchFormBox, Select } from './SearchForm.styled';
 
 export const SearchForm = ({ allCars, filter }) => {
-  const [from, setFrom] = useState(1);
-  const [to, setTo] = useState(100000);
-  const handleInputFrom = event => {
-    setFrom(Number(event.target.value));
-  };
-  const handleInputTo = event => {
-    setTo(Number(event.target.value));
-  };
   const brands = allCars
     .flatMap(car => car.make)
     .filter((make, i, arr) => arr.indexOf(make) === i)
@@ -42,7 +28,7 @@ export const SearchForm = ({ allCars, filter }) => {
   const handleSubmit = event => {
     event.preventDefault();
 
-    filter(selectedBrand, selectedPrice, from, to);
+    filter(selectedBrand, selectedPrice);
     event.currentTarget.reset();
   };
 
@@ -80,21 +66,6 @@ export const SearchForm = ({ allCars, filter }) => {
           </Select>
         </label>
 
-        <label>
-          <p>Сar mileage / km</p>
-          <Input
-            type="text"
-            name="from"
-            placeholder="From"
-            onChange={handleInputFrom}
-          />
-          <Input
-            type="text"
-            name="to"
-            placeholder="To"
-            onChange={handleInputTo}
-          />
-        </label>
         <Search type="submit">Search</Search>
       </Form>
     </SearchFormBox>

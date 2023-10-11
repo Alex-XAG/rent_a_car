@@ -29,13 +29,6 @@ const CatalogPage = ({ allCars, setFavorites, favorites }) => {
           return car;
         }
         return Number(car.rentalPrice.slice(1)) <= price;
-      })
-      .filter(car => {
-        const mileage = car.mileage >= from && car.mileage <= to;
-        if (!mileage) {
-          return car;
-        }
-        return car.mileage >= from && car.mileage <= to;
       });
     setFilteredCars([...filtered]);
   };
