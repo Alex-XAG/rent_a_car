@@ -3,10 +3,28 @@ import { CatalogList, CatalogPageBox, LoadMore } from './CatalogPage.styled';
 
 import { useEffect, useState } from 'react';
 import { CatalogItem } from 'components/CatalogItem/CatalogItem';
+import axios from 'axios';
 
-const CatalogPage = ({ allCars, setFavorites, favorites }) => {
+const CatalogPage = ({ setFavorites, favorites }) => {
   const [visibleCars, setVisibleCars] = useState(8);
   const [filteredCars, setFilteredCars] = useState([]);
+  const [allCars, setAllCars] = useState([]);
+
+  useEffect(() => {
+    const getCars = async () => {
+      try {
+        await axios
+          .get('https://65203df0906e276284c43e76.mockapi.io/api/adverts')
+          .then(res => {
+            setAllCars(res.data);
+            return res.data;
+          });
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getCars();
+  }, []);
 
   useEffect(() => {
     setFilteredCars(allCars);
